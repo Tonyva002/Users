@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Neutrals -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="gray_900">#212121</color>
+    <color name="gray_700">#616161</color>
+    <color name="gray_500">#9E9E9E</color>
+    <color name="gray_200">#EEEEEE</color>
+    <color name="gray_100">#F5F5F5</color>
+
+    <!-- Brand -->
+    <color name="color_primary">#D32F2F</color>      <!-- Red 700 -->
+    <color name="color_primary_variant">#B71C1C</color>
+    <color name="color_secondary">#F06292</color>    <!-- Pink 300 -->
+
+    <!-- Backgrounds -->
+    <color name="color_background">#FFFFFF</color>
+    <color name="color_surface">#F5F5F5</color>
+
+    <!-- Text -->
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#616161</color>
+    <color name="text_hint">#9E9E9E</color>
+
+    <!-- Status -->
+    <color name="color_error">#D32F2F</color>
+    <color name="color_success">#388E3C</color>
+    <color name="color_warning">#FBC02D</color>
+    <color name="transparent">#00000000</color>
+
+</resources>

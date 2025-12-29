@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_background"
+    tools:context=".ui.view.UserActivity">
+
+<!-- Toolbar -->
+<include
+    android:id="@+id/itoolbar"
+    layout="@layout/toolbar" />
+
+<!-- Switch entre list y grid -->
+<ViewSwitcher
+    android:id="@+id/viewSwitcher"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:inAnimation="@android:anim/fade_in"
+    android:outAnimation="@android:anim/fade_out">
+
+    <!-- LIST -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/spacing_xxs"
+        android:clipToPadding="false"
+        tools:listitem="@layout/item_user" />
+
+    <!-- GRID -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerGrid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/spacing_xxs"
+        android:clipToPadding="false"
+        tools:listitem="@layout/item_user" />
+
+</ViewSwitcher>
+
+</LinearLayout>

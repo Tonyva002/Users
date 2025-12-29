@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Users</string>
+    <string name="user_image">User image</string>
+    <string name="search">Search</string>
+    <string name="change_view">Change view</string>
+    <string name="user">User</string>
+    <string name="search_user">Search user...</string>
+    <string name="name">Name</string>
+    <string name="lastname">Lastname</string>
+    <string name="company">Company</string>
+    <string name="age">Age</string>
+    <string name="weight">Weight</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="address">Address</string>
+    <string name="save">Save</string>
+    <string name="update_user">Update user</string>
+    <string name="add_user">Add user</string>
+    <string name="select_image">Select image</string>
+    <string name="cancel">Cancel</string>
+    <string name="invalid_data">Invalid form</string>
+    <string name="user_details">Details</string>
+    <string name="edit_user">Edit</string>
+    <string name="delete_user">Delete</string>
+</resources>

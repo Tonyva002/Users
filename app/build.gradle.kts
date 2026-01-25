@@ -54,7 +54,7 @@ dependencies {
 
     // room
     implementation(libs.room.runtime)
-    implementation(libs.room.testing)
+    testImplementation(libs.room.testing)
     ksp(libs.room.compiler)
 
     // glide

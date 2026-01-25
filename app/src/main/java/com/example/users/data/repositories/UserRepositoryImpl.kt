@@ -1,8 +1,8 @@
 package com.example.users.data.repositories
 
 import com.example.users.data.local.dao.UserDao
-import com.example.users.data.local.mapper.toDomain
-import com.example.users.data.local.mapper.toEntity
+import com.example.users.data.mapper.toDomain
+import com.example.users.data.mapper.toEntity
 import com.example.users.domain.models.User
 import com.example.users.domain.repositories.UserRepository
 import kotlinx.coroutines.flow.Flow

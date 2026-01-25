@@ -1,4 +1,4 @@
-package com.example.users.data.local.mapper
+package com.example.users.data.mapper
 
 import com.example.users.data.local.entity.UserEntity
 import com.example.users.domain.models.User

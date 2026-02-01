@@ -35,22 +35,25 @@ Install Android Studio
 ## Screenshots
 
 ### 1)
-![Screen 1](https://github.com/user-attachments/assets/bc48e9c2-f00e-4112-a049-454dbde8153b)
+![Screen 1](https://github.com/user-attachments/assets/2599209a-7d19-4e1b-a7fe-6f8c34fa13d8)
 
 ### 2)
-![Screen 2](https://github.com/user-attachments/assets/8403f0dd-867f-4fa8-ab9d-85b6672c029c)
+![Screen 2](https://github.com/user-attachments/assets/4d6aefca-2169-4be9-ba34-1cf1c3357c1d)
 
 ### 3)
-![Screen 3](https://github.com/user-attachments/assets/c88da5a7-d5fe-46cb-bb6b-8d8b5ea016aa)
+![Screen 3](https://github.com/user-attachments/assets/af7fe072-9279-42d7-9172-fc571a91678e)
 
 ### 4)
-![Screen 4](https://github.com/user-attachments/assets/8c9d0584-3347-4ff8-af27-ce1a03acafc4)
+![Screen 4](https://github.com/user-attachments/assets/ae1c21b9-88fd-4e94-838b-5ba2d7a4d5c6)
 
 ### 5)
-![Screen 5](https://github.com/user-attachments/assets/26ab62d7-342e-4e1a-9a99-984db43ca20b)
+![Screen 4](https://github.com/user-attachments/assets/8c9d0584-3347-4ff8-af27-ce1a03acafc4)
 
 ### 6)
-![Screen 6](https://github.com/user-attachments/assets/8b25fc41-a1cd-45ab-a890-5e63c54835ae)
+![Screen 5](https://github.com/user-attachments/assets/26ab62d7-342e-4e1a-9a99-984db43ca20b)
+
+### 7)
+![Screen 6](https://github.com/user-attachments/assets/734d52f5-8b34-4d6e-b075-f355aa2211f6)
 
 
 

@@ -1,4 +1,4 @@
-package com.example.users.ui.state
+package com.example.users.ui.states
 
 import com.example.users.domain.models.User
 

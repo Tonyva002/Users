@@ -6,7 +6,7 @@ xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/color_background"
-    tools:context=".ui.view.UserActivity">
+    tools:context=".ui.view.users.UserActivity">
 
 <!-- Toolbar -->
 <include

@@ -17,6 +17,9 @@ interface UserDao {
     @Query(" SELECT * FROM users WHERE LOWER(name) LIKE '%' || LOWER(:query) || '%'")
     fun searchByName(query: String): Flow<List<UserEntity>>
 
+    @Query("SELECT * FROM users WHERE id = :id")
+    suspend fun getUserById(id: Long): UserEntity
+
     @Insert
     suspend fun insert(user: UserEntity): Long
 

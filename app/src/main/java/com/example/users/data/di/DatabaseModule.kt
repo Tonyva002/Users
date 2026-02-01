@@ -25,6 +25,7 @@ object DatabaseModule {
         UserDatabase::class.java,
         "users_db"
     )
+
         .build()
 
     @Provides

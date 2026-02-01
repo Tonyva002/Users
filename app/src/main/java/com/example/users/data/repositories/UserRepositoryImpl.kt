@@ -10,18 +10,22 @@ import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class UserRepositoryImpl @Inject constructor(
-    private val dao: UserDao): UserRepository {
+    private val dao: UserDao
+) : UserRepository {
 
     override fun getUsers(): Flow<List<User>> =
         dao.getAll().map { list -> list.map { it.toDomain() } }
 
-    override  fun searchUsers(query: String): Flow<List<User>> =
+    override fun searchUsers(query: String): Flow<List<User>> =
         dao.searchByName(query).map { list -> list.map { it.toDomain() } }
 
+    override suspend fun getUserById(id: Long): User =
+        dao.getUserById(id).toDomain()
 
-    override suspend fun addUser(user: User) {
+
+    override suspend fun addUser(user: User): Long =
         dao.insert(user.toEntity())
-    }
+
 
     override suspend fun updateUser(user: User) {
         dao.update(user.toEntity())

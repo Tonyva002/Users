@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:background="@color/color_background"
     android:fitsSystemWindows="true"
-    tools:context=".ui.view.NewUserActivity">
+    tools:context=".ui.view.add.NewUserActivity">
 
     <!-- Toolbar -->
     <include

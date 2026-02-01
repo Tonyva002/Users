@@ -13,13 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Users">
         <activity
-            android:name=".ui.view.NewUserActivity"
+            android:name=".ui.view.add.NewUserActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.view.UserDetailsActivity"
+            android:name=".ui.view.details.UserDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.view.UserActivity"
+            android:name=".ui.view.users.UserActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

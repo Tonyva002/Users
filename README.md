@@ -47,7 +47,7 @@ Install Android Studio
 ![Screen 4](https://github.com/user-attachments/assets/ae1c21b9-88fd-4e94-838b-5ba2d7a4d5c6)
 
 ### 5)
-![Screen 4](https://github.com/user-attachments/assets/8c9d0584-3347-4ff8-af27-ce1a03acafc4)
+![Screen 4](https://github.com/user-attachments/assets/bdcc30ae-a549-4cae-a11a-7f142753b845)
 
 ### 6)
 ![Screen 5](https://github.com/user-attachments/assets/26ab62d7-342e-4e1a-9a99-984db43ca20b)

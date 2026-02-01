@@ -23,4 +23,6 @@
     <string name="edit_user">Edit</string>
     <string name="delete_user">Delete</string>
     <string name="years">%1$d Años</string>
+    <string name="user_saved">"Usuario guardado "</string>
+    <string name="user_updated">Usuario Actualizado</string>
 </resources>

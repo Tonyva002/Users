@@ -33,8 +33,9 @@ class UserActivity : AppCompatActivity() {
     private val viewModel: UserViewModel by viewModels()
 
     private lateinit var binding: ActivityUserBinding
-    private lateinit var listAdapter: UserAdapter
-    private lateinit var gridAdapter: UserAdapter
+    private lateinit var adapter: UserAdapter
+    private var isGrid = false
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,23 +62,16 @@ class UserActivity : AppCompatActivity() {
     }
 
     private fun setupRecyclerViews() {
-        listAdapter = UserAdapter(isGrid = false) { user ->
+        adapter = UserAdapter(isGrid = false) { user ->
             goToDetail(user.id)
         }
 
-        gridAdapter = UserAdapter(isGrid = true) { user ->
-            goToDetail(user.id)
-        }
 
-        binding.recyclerList.apply {
+        binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(this@UserActivity)
-            adapter = listAdapter
+            adapter = this@UserActivity.adapter
         }
 
-        binding.recyclerGrid.apply {
-            layoutManager = GridLayoutManager(this@UserActivity, 2)
-            adapter = gridAdapter
-        }
     }
 
     private fun observeViewModel() {
@@ -86,15 +80,16 @@ class UserActivity : AppCompatActivity() {
                 viewModel.uiState.collect { state ->
                     when (state) {
                         is UserUiState.Loading -> {
-                            //Loader optional
+                            binding.progressBar.visibility = android.view.View.VISIBLE
                         }
 
                         is UserUiState.Success -> {
-                            listAdapter.submitList(state.users)
-                            gridAdapter.submitList(state.users)
+                            binding.progressBar.visibility = android.view.View.GONE
+                            adapter.submitList(state.users)
                         }
 
                         is UserUiState.Error -> {
+                            binding.progressBar.visibility = android.view.View.GONE
                             Toast.makeText(
                                 this@UserActivity,
                                 state.message,
@@ -138,7 +133,7 @@ class UserActivity : AppCompatActivity() {
             override fun onQueryTextSubmit(query: String?): Boolean = true
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                viewModel.search(newText.orEmpty())
+                viewModel.onSearch(newText.orEmpty())
                 return true
             }
 
@@ -153,9 +148,19 @@ class UserActivity : AppCompatActivity() {
         val switchView = itemSwitch?.actionView?.findViewById<SwitchCompat>(R.id.change_view)
 
         switchView?.setOnCheckedChangeListener { _, _ ->
-            binding.viewSwitcher.showNext()
+            toggleLayout()
         }
 
+    }
+
+    private fun toggleLayout() {
+        isGrid = !isGrid
+
+        binding.recyclerView.layoutManager =
+            if (isGrid) GridLayoutManager(this, 2)
+            else LinearLayoutManager(this)
+
+        adapter.setGrid(isGrid)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -168,4 +173,6 @@ class UserActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
+
+
 }

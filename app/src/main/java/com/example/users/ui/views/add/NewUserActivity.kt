@@ -17,8 +17,6 @@ import com.example.users.R
 import com.example.users.databinding.ActivityNewUserBinding
 import com.example.users.domain.models.User
 import com.example.users.ui.states.NewUserUiState
-import com.example.users.ui.states.UserUiState
-import com.example.users.ui.view.users.UserViewModel
 import com.example.users.ui.views.add.NewUserViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -33,7 +31,6 @@ class NewUserActivity : AppCompatActivity() {
     private var isEditMode = false
     private var indexPhoto = 0
 
-    private var isUserLoaded = false
 
     private val photos = arrayOf(
         R.drawable.photo_01,
@@ -72,8 +69,9 @@ class NewUserActivity : AppCompatActivity() {
     // Setup
     // -------------------------
     private fun readArgs() {
-        userId = intent.extras?.getLong("USER_ID")
+        userId = intent.extras?.getLong("USER_ID")?.takeIf { it > 0 }
         isEditMode = userId != null
+
     }
 
     private fun setupToolbar() {
@@ -135,10 +133,21 @@ class NewUserActivity : AppCompatActivity() {
                             fillUser(state.user)
                         }
 
+                        NewUserUiState.Saved -> {
+                            val message = if (isEditMode)
+                                getString(R.string.user_updated)
+                            else
+                                getString(R.string.user_saved)
+
+                            Toast.makeText(this@NewUserActivity, message, Toast.LENGTH_SHORT).show()
+                            finish()
+                        }
+
                         is NewUserUiState.Error -> {
                             Toast.makeText(this@NewUserActivity, state.message, Toast.LENGTH_SHORT)
                                 .show()
                         }
+
                     }
                 }
             }
@@ -151,8 +160,7 @@ class NewUserActivity : AppCompatActivity() {
 
     private fun saveUser() {
         val user = buildUser() ?: return
-        if (isEditMode) viewModel.save(user, isEditMode)
-        finish()
+        viewModel.save(user, isEditMode)
     }
 
     private fun buildUser(): User? {

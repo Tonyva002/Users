@@ -94,7 +94,7 @@ class UserDetailsActivity : AppCompatActivity() {
         Glide.with(this@UserDetailsActivity)
             .load(user.photoResId)
             .diskCacheStrategy(DiskCacheStrategy.ALL)
-            .centerCrop()
+            .fitCenter()
             .into(imgPhoto)
 
         tvName.text = "${user.name} ${user.lastname}"

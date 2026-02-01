@@ -13,32 +13,27 @@ xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/itoolbar"
     layout="@layout/toolbar" />
 
-<!-- Switch entre list y grid -->
-<ViewSwitcher
-    android:id="@+id/viewSwitcher"
+<FrameLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:inAnimation="@android:anim/fade_in"
-    android:outAnimation="@android:anim/fade_out">
+    android:layout_height="match_parent">
 
-    <!-- LIST -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerList"
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="@dimen/spacing_xxs"
         android:clipToPadding="false"
         tools:listitem="@layout/item_user" />
 
-    <!-- GRID -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerGrid"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/spacing_xxs"
-        android:clipToPadding="false"
-        tools:listitem="@layout/item_user" />
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        style="?android:attr/progressBarStyleLarge" />
 
-</ViewSwitcher>
+</FrameLayout>
+
 
 </LinearLayout>

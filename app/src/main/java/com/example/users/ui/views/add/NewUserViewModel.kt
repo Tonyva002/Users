@@ -37,8 +37,14 @@ class NewUserViewModel @Inject constructor(
 
     fun save(user: User, isEdit: Boolean){
         viewModelScope.launch {
+            _uiState.value = NewUserUiState.Loading
             try {
-                if (isEdit) updateUser(user) else addUser(user)
+                if (isEdit){
+                    updateUser(user)
+                } else {
+                    addUser(user)
+                }
+                _uiState.value = NewUserUiState.Saved
             }catch (e: Exception){
                 _uiState.value = NewUserUiState.Error(e.message ?: "Error saving user")
             }

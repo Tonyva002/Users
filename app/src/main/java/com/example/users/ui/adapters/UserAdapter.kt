@@ -14,11 +14,19 @@ import com.example.users.domain.models.User
 class UserAdapter(
     private var isGrid: Boolean,
     private val onClick: (User) -> Unit
-) : ListAdapter<User, RecyclerView.ViewHolder>(DiffCallback()) {
+) : ListAdapter<User, RecyclerView.ViewHolder>(DiffCallback) {
 
     companion object {
         private const val VIEW_TYPE_LIST = 0
         private const val VIEW_TYPE_GRID = 1
+
+        object DiffCallback : DiffUtil.ItemCallback<User>() {
+            override fun areItemsTheSame(oldItem: User, newItem: User): Boolean =
+                oldItem.id == newItem.id
+
+            override fun areContentsTheSame(oldItem: User, newItem: User): Boolean =
+                oldItem == newItem
+        }
     }
 
     override fun getItemViewType(position: Int): Int {
@@ -30,23 +38,17 @@ class UserAdapter(
         viewType: Int
     ): RecyclerView.ViewHolder {
 
+        val inflater = LayoutInflater.from(parent.context)
+
         return when (viewType) {
 
             VIEW_TYPE_GRID -> {
-                val binding = ItemGridUserBinding.inflate(
-                    LayoutInflater.from(parent.context),
-                    parent,
-                    false
-                )
+                val binding = ItemGridUserBinding.inflate(inflater, parent, false)
                 GridViewHolder(binding)
             }
 
             else -> {
-                val binding = ItemUserBinding.inflate(
-                    LayoutInflater.from(parent.context),
-                    parent,
-                    false
-                )
+                val binding = ItemUserBinding.inflate(inflater, parent, false)
                 ListViewHolder(binding)
             }
         }
@@ -64,21 +66,21 @@ class UserAdapter(
         }
     }
 
-    fun switchView(isGrid: Boolean) {
+    // Cambia entre vista LIST / GRID
+    fun setGrid(isGrid: Boolean) {
+        if (this.isGrid == isGrid) return
+
         this.isGrid = isGrid
-        notifyItemRangeChanged(0, itemCount)
+        notifyDataSetChanged()
     }
+
 
     inner class ListViewHolder(
         private val binding: ItemUserBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(user: User) = with(binding) {
-            tvName.text = buildString {
-                append(user.name)
-                append(" ")
-                append(user.lastname)
-            }
+            tvName.text = "${user.name} ${user.lastname}"
             tvCompany.text = user.company
 
             Glide.with(root.context)
@@ -97,11 +99,7 @@ class UserAdapter(
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(user: User) = with(binding) {
-            tvNameGrid.text = buildString {
-                append(user.name)
-                append(" ")
-                append(user.lastname)
-            }
+            tvNameGrid.text = "${user.name} ${user.lastname}"
 
             Glide.with(root.context)
                 .load(user.photoResId)
@@ -111,13 +109,5 @@ class UserAdapter(
 
             root.setOnClickListener { onClick(user) }
         }
-    }
-
-    class DiffCallback : DiffUtil.ItemCallback<User>() {
-        override fun areItemsTheSame(oldItem: User, newItem: User) =
-            oldItem.id == newItem.id
-
-        override fun areContentsTheSame(oldItem: User, newItem: User) =
-            oldItem == newItem
     }
 }
